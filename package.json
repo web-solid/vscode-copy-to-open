@@ -2,7 +2,7 @@
   "name": "copy-to-open",
   "displayName": "Copy To Open",
   "description": "Open file in clipbaord",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "icon": "resources/open_256.png",
   "publisher": "web-solid",
