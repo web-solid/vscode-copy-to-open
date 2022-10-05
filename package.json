@@ -2,7 +2,7 @@
   "name": "copy-to-open",
   "displayName": "Copy To Open",
   "description": "Open file in clipbaord",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "icon": "resources/open_256.png",
   "publisher": "web-solid",
@@ -13,7 +13,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:copy-to-open.openFileInClipboard"
+    "onCommand:copy-to-open.openFileInClipboard",
+    "onCommand:copy-to-open.openSearchInClipboard"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -21,13 +22,33 @@
       {
         "command": "copy-to-open.openFileInClipboard",
         "title": "Open File In Clipboard"
+      },
+      {
+        "command": "copy-to-open.openSearchInClipboard",
+        "title": "Open Seaarch In Clipboard"
       }
     ],
+    "configuration": {
+      "title": "Google Search Config",
+      "type": "object",
+      "properties": {
+        "googleSearch.QueryTemplate": {
+          "type": "string",
+          "default": "https://www.google.com/search?q=%SELECTION%",
+          "description": "Search Query"
+        }
+      }
+    },
      "keybindings": [
       {
         "command": "copy-to-open.openFileInClipboard",
         "key": "ctrl+shift+O",
         "mac": "cmd+shift+O"
+      },
+      {
+        "command": "copy-to-open.openSearchInClipboard",
+        "key": "ctrl+shift+Q",
+        "mac": "cmd+shift+Q"
       }
     ]
   },
@@ -37,6 +58,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
+    "package": "vsce package",
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {

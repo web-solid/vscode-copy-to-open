@@ -10,6 +10,8 @@ or
  even `c:/windows\abc.txt`,
 then `ctrl+shift+O`, it opened. 
 
+Use `ctrl+shift+Q` to ask google!
+
 So easy!
 
 
@@ -22,6 +24,9 @@ So easy!
 
 ## Release Notes
 
+### 0.0.3
+
+- open search from clipboard content
 ### 0.0.2
 
 - open relative path like b\a\c.txt in project.

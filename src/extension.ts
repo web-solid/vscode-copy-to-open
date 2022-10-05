@@ -4,6 +4,10 @@ import * as vscode from 'vscode';
 import * as os from 'os';
 import * as fs from 'fs';
 
+//Strings
+const CFG_SECTION = "googleSearch";
+const CFG_QUERY = "QueryTemplate";
+
 function getPathSeparator(isWin: boolean){
     if(isWin){
         return '\\';
@@ -25,7 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('copy-to-open.openFileInClipboard', () => {
+	const disposable = vscode.commands.registerCommand('copy-to-open.openFileInClipboard', () => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
 		vscode.env.clipboard.readText().then((text) => {
@@ -93,7 +97,32 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposable);
+
+	const copyToSearch= vscode.commands.registerCommand('copy-to-open.openSearchInClipboard', () => {
+		vscode.env.clipboard.readText().then((text) => {
+			if(text.length < 2 || text.trim().length > 1024) {
+				return;
+			}
+			webSearch(text.trim().substring(0, 255));
+		});
+	});
+	context.subscriptions.push(copyToSearch);
 }
+
+//Function to launch the Search URL in default browser
+function webSearch(selectedText: string) {
+	if (!selectedText) {
+	  return;
+	}
+	const uriText = encodeURI(selectedText);
+	const googleSearchCfg = vscode.workspace.getConfiguration(CFG_SECTION);
+	const queryTemplate = googleSearchCfg.get<string>(CFG_QUERY);
+	const query = queryTemplate?.replace("%SELECTION%", uriText);
+	if(!query) {
+		return;
+	};
+	vscode.commands.executeCommand("vscode.open", vscode.Uri.parse(query));
+  }
 
 // this method is called when your extension is deactivated
 export function deactivate() {}
