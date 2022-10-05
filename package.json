@@ -1,8 +1,8 @@
 {
   "name": "copy-to-open",
   "displayName": "Copy To Open",
-  "description": "Open file in clipbaord",
-  "version": "0.0.3",
+  "description": "Open file in clipboard",
+  "version": "0.0.4",
   "license": "MIT",
   "icon": "resources/open_256.png",
   "publisher": "web-solid",
