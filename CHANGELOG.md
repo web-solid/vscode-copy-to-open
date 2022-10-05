@@ -1,9 +1,16 @@
 # Change Log
 
-All notable changes to the "copy-to-open" extension will be documented in this file.
+### 0.0.3
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- open search from clipboard content
+### 0.0.2
 
-## [Unreleased]
+- open relative path like b\a\c.txt in project.
+- open with line number. eg:  a.txt:93
+- open with char postion. eg: a.txt:93:1
 
-- Initial release
+### 0.0.1
+
+- open path like: c:/windows/system32/drivers/etc/hosts
+- open path like: c:\windows\system32\drivers\etc\hosts
+- open path like: c:\windows/system32/drivers\etc\hosts
