@@ -69,6 +69,7 @@
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "package": "vsce package",
+    "publish": "vsce publish",
     "test": "sh scripts/test.sh"
   },
   "devDependencies": {
