@@ -1,5 +1,9 @@
 # Change Log
 
+### 0.0.5
+
+- open search from clipboard content
+
 ### 0.0.3
 
 - open search from clipboard content

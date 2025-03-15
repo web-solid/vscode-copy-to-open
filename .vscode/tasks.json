@@ -4,17 +4,31 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "npm",
-			"script": "watch",
-			"problemMatcher": "$tsc-watch",
-			"isBackground": true,
-			"presentation": {
-				"reveal": "never"
-			},
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			}
-		}
+            "label": "git search commits about",
+            "type": "shell",
+            "command": "git",
+            "args": [
+                "log",
+                "--pretty=format:'%h %ad %s'",
+                "--date=short",
+                "-S'0.0.4'"
+            ],
+            "group": {
+                "kind": "none",
+                "isDefault": false
+            },
+            "options": {
+                // "cwd": "${env:VCPKG_ROOT}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
 	]
 }
