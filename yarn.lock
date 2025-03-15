@@ -393,6 +393,11 @@ concat-map@0.0.1:
   resolved "https://registry.npmmirror.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
+"copy-to-open@file:.":
+  version "0.0.4"
+  dependencies:
+    copy-to-open "file:../../home/codespace/.cache/yarn/v6/npm-copy-to-open-0.0.4-ebc57345-a4c0-4a1e-baae-6d0e9c8486b5-1742042693641/node_modules/copy-to-open"
+
 core-util-is@~1.0.0:
   version "1.0.3"
   resolved "https://registry.npmmirror.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
