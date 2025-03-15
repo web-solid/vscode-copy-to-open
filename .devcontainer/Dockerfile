@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+FROM mcr.microsoft.com/devcontainers/universal:2
 
 # Install Xvfb
 RUN apt-get update && apt-get install -y xvfb
