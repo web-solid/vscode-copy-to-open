@@ -69,7 +69,7 @@
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "package": "vsce package",
-    "test": "node ./out/test/runTest.js"
+    "test": "sh scripts/test.sh"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",

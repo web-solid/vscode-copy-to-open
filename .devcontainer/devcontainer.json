@@ -6,7 +6,7 @@
     "runArgs": [
         "--init"
     ],
-    "postStartCommand": "xvfb-run -s '-screen 0 1920x1080x24' code",
+    // "postStartCommand": "xvfb-run -s '-screen 0 1920x1080x24' code",
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     }
