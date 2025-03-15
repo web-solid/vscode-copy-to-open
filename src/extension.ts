@@ -139,10 +139,45 @@ export function activate(context: vscode.ExtensionContext) {
         if (text.length < 2 || text.trim().length > 1024) {
           return;
         }
-        const splitText = text
-          .split(' ')
-          .map((part) => `"${part}"`)
+
+        // Convert double quotes to single quotes
+        let preprocessedText = text.replace(/"/g, "'");
+
+        // Match parts of the command line, including quoted parts
+        let parts = [];
+        let part = '';
+        let inQuotes = false;
+
+        for (let i = 0; i < preprocessedText.length; i++) {
+          const char = preprocessedText[i];
+
+          if (char === "'") {
+            inQuotes = !inQuotes;
+            part += char;
+          } else if (char === ' ' && !inQuotes) {
+            if (part) {
+              parts.push(part);
+              part = '';
+            }
+          } else {
+            part += char;
+          }
+        }
+
+        if (part) {
+          parts.push(part);
+        }
+
+        const splitText = parts
+          .map((part) => {
+            // Preserve single quotes around parts
+            if (part.startsWith("'") && part.endsWith("'")) {
+              return `"${part}"`;
+            }
+            return `"${part}"`;
+          })
           .join(', ');
+
         vscode.env.clipboard.writeText(splitText).then(() => {
           vscode.window.showInformationMessage(
             'Command line has been split and copied to clipboard.'

@@ -30,5 +30,36 @@ suite('Extension Test Suite', () => {
 
             assert.strictEqual(splitCommandLine, expected);
         });
+        
+        test(`Split Command Line Test-2 - Iteration ${i}`, async () => {
+            const commandLine = `xvfb-run -s '-screen 0 1920x1080x24' node ./out/test/runTest.js`;
+            await vscode.env.clipboard.writeText(commandLine);
+
+            await vscode.commands.executeCommand('copy-to-open.splitCommandLine');
+
+            // Wait for 1 second
+            await new Promise((resolve) => setTimeout(resolve, 50));
+
+            const splitCommandLine = await vscode.env.clipboard.readText();
+            const expected =
+                `"xvfb-run", "-s", "'-screen 0 1920x1080x24'", "node", "./out/test/runTest.js"`;
+
+            assert.strictEqual(splitCommandLine, expected);
+        });
+
+        test(`Split Command Line Test-3 - Iteration ${i}`, async () => {
+            const commandLine = `git log --pretty=format:"%h %ad %s" --date=short -S"libtool-2.4.6"`;
+            await vscode.env.clipboard.writeText(commandLine);
+
+            await vscode.commands.executeCommand('copy-to-open.splitCommandLine');
+
+            // Wait for 1 second
+            await new Promise((resolve) => setTimeout(resolve, 50));
+
+            const splitCommandLine = await vscode.env.clipboard.readText();
+            const expected = `"git", "log", "--pretty=format:'%h %ad %s'", "--date=short", "-S'libtool-2.4.6'"`;
+
+            assert.strictEqual(splitCommandLine, expected);
+        });
     }
 });

@@ -2,7 +2,7 @@
   "name": "copy-to-open",
   "displayName": "Copy To Open",
   "description": "Open file in clipboard",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "icon": "resources/open_256.png",
   "publisher": "web-solid",
@@ -57,8 +57,8 @@
       },
       {
         "command": "copy-to-open.splitCommandLine",
-        "key": "ctrl+c,ctrl+s",
-        "mac": "ctrl+c,ctrl+s"
+        "key": "ctrl+k,ctrl+t",
+        "mac": "ctrl+k,ctrl+t"
       }
     ]
   },
