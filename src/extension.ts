@@ -187,6 +187,46 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
   context.subscriptions.push(splitCommandLine);
+
+  const toWinPathCommandLine = vscode.commands.registerCommand(
+    'copy-to-open.toWinPath',
+    () => {
+      vscode.env.clipboard.readText().then((text) => {
+        if (text.length < 2 || text.trim().length > 1024) {
+          return;
+        }
+
+        let newText = text.replace(/\//g, "\\");
+
+        vscode.env.clipboard.writeText(newText).then(() => {
+          vscode.window.showInformationMessage(
+            'Command line has been copied to clipboard.'
+          );
+        });
+      });
+    }
+  );
+  context.subscriptions.push(toWinPathCommandLine);
+
+  const toLinuxPathCommandLine = vscode.commands.registerCommand(
+    'copy-to-open.toLinuxPath',
+    () => {
+      vscode.env.clipboard.readText().then((text) => {
+        if (text.length < 2 || text.trim().length > 1024) {
+          return;
+        }
+
+        let newText = text.replace(/\\/g, '/');
+
+        vscode.env.clipboard.writeText(newText).then(() => {
+          vscode.window.showInformationMessage(
+            'Command line has been copied to clipboard.'
+          );
+        });
+      });
+    }
+  );
+  context.subscriptions.push(toLinuxPathCommandLine);
 }
 
 // Function to launch the Search URL in default browser
