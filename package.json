@@ -2,7 +2,7 @@
   "name": "copy-to-open",
   "displayName": "Copy To Open",
   "description": "Open file in clipboard",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "icon": "resources/open_256.png",
   "publisher": "web-solid",
@@ -31,6 +31,14 @@
       {
         "command": "copy-to-open.splitCommandLine",
         "title": "Split CommandLine in clipboard"
+      },
+      {
+        "command": "copy-to-open.toWinPath",
+        "title": "convert CommandLine in clipboard to windows style"
+      },
+      {
+        "command": "copy-to-open.toLinuxPath",
+        "title": "convert CommandLine in clipboard to linux style"
       }
     ],
     "configuration": {

@@ -1,8 +1,12 @@
 # Change Log
 
+### 0.0.6
+
+- add convert path command
+
 ### 0.0.5
 
-- open search from clipboard content
+- add splitCommandLine
 
 ### 0.0.3
 
